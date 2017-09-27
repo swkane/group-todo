@@ -8,6 +8,8 @@ export default const reducer =(state={},action) => {
   switch (action.type) {
     case ADD_TODO_LIST:
       return {...state, [action.payload]: []}
+    case ADD_TODO:
+      return {...state, [action.list]: [...[action.list],{todo:[action.todo], isComplete: false}]}
     default:
       return state;
   }
