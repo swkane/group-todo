@@ -14,8 +14,12 @@ export const filterTodoList = title => {
   return {type: FILTER_TODO_LIST, payload: title}
 }
 
-export const addTodo = todo => {
-  return {type: ADD_TODO, payload: todo}
+export const addTodo = (list,todo) => {
+  return {
+    type: ADD_TODO,
+    list,
+    todo
+  }
 }
 
 export const filterTodo = category => {
