@@ -6,9 +6,13 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
+
+const store = createStore(() => ({}));
 
 ReactDOM.render(
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   , document.getElementById('root'));
 registerServiceWorker();

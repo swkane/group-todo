@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addTodoList }  from '../actions';
+import { bindActionCreators } from 'redux';
 //make sure action created flows through all reducers
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
 
-export default class Home extends React.Component {
+class Home extends React.Component {
 
 
 
@@ -28,3 +30,10 @@ export default class Home extends React.Component {
     )
   }
 }
+
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ addTodoList: addTodoList }, dispatch)
+}
+
+export default connect(mapDispatchToProps)(Home);
