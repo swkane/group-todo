@@ -7,7 +7,7 @@ import COMPLETE_TODO from '../actions';
 export default const reducer =(state={},action) => {
   switch (action.type) {
     case ADD_TODO_LIST:
-      return {...state, [action.payload]: {}}
+      return {...state, [action.payload]: []}
     default:
       return state;
   }
