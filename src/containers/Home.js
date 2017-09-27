@@ -5,11 +5,7 @@ import { bindActionCreators } from 'redux';
 //make sure action created flows through all reducers
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-
-
 class Home extends React.Component {
-
-
 
   render(){
     return (
@@ -22,7 +18,7 @@ class Home extends React.Component {
                <Input type="text" name="todo" placeholder="Create a todo list" />
              </FormGroup>
              {' '}
-             <Button style={{margin:'10px'}} color="danger">Add List</Button>
+             <Button style={{margin:'10px'}} color="danger" onClick={() => this.props.addTodoList()}>Add List</Button>
              <Button color="primary">Filter By Title</Button>
            </Form>
         </div>
@@ -31,6 +27,11 @@ class Home extends React.Component {
   }
 }
 
+// function mapStateToProps(state) {
+//   return {
+//     books: state.books,
+//   };
+// }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ addTodoList: addTodoList }, dispatch)
