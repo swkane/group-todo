@@ -1,14 +1,11 @@
-import ADD_TODO_LIST from '../actions';
-import FILTER_TODO_LIST from '../actions';
-import ADD_TODO from '../actions';
-import FILTER_TODO from '../actions';
-import COMPLETE_TODO from '../actions';
+import * as ActionTypes from '../actions';
 
-export default const reducer =(state={},action) => {
+
+export default (state={},action) => {
   switch (action.type) {
-    case ADD_TODO_LIST:
+    case ActionTypes.ADD_TODO_LIST:
       return {...state, [action.payload]: []}
-    case ADD_TODO:
+    case ActionTypes.ADD_TODO:
       return {...state, [action.list]: [...[action.list],{todo:[action.todo], isComplete: false}]}
     default:
       return state;
