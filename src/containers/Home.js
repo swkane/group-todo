@@ -6,8 +6,14 @@ import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Home extends React.Component {
+  state ={
+    currentTitle: ''
+  }
+
+  handleTitle = (e) => {this.setState({currentTitle: e.target.value})}
 
   render(){
+
     return (
       <div>
         <h1 style={{textAlign:'center', fontFamily:'cursive'}}>Todo List Manager</h1>
@@ -15,10 +21,10 @@ class Home extends React.Component {
             <Form inline>
              {' '}
              <FormGroup>
-               <Input type="text" name="todo" placeholder="Create a todo list" />
+               <Input type="text" name="todo" placeholder="Create a todo list" onChange={this.handleTitle} value={this.state.currentTitle}/>
              </FormGroup>
              {' '}
-             <Button style={{margin:'10px'}} color="danger" onClick={() => this.props.addTodoList()}>Add List</Button>
+             <Button style={{margin:'10px'}} color="danger" onClick={() => this.props.addTodoList(this.state.currentTitle)}>Add List</Button>
              <Button color="primary">Filter By Title</Button>
            </Form>
         </div>
@@ -27,14 +33,8 @@ class Home extends React.Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     books: state.books,
-//   };
-// }
-
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ addTodoList: addTodoList }, dispatch)
 }
 
-export default connect(mapDispatchToProps)(Home);
+export default connect(null, mapDispatchToProps)(Home);
